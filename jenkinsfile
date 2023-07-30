@@ -4,11 +4,9 @@ pipeline {
     stages {
         stage('Compile') {
             steps {
-                // Compile the Java code using javac
-                
+            // Compile the Java code using javac
             }
         }
-
         stage('Run') {
             steps {
                 // Run the Java program
