@@ -5,7 +5,7 @@ pipeline {
         stage('Compile') {
             steps {
                 // Compile the Java code using javac
-                sh javac hello.java
+                sh 'javac hello.java'
             }
         }
 
