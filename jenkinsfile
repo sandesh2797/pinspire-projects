@@ -1,16 +1,19 @@
+/* groovylint-disable-next-line CompileStatic */
 pipeline {
     agent any
 
     stages {
         stage('Compile') {
             steps {
-            // Compile the Java code using javac
+                // Compile the Java code using javac
+                sh 'javac hello.java'
             }
         }
+
         stage('Run') {
             steps {
                 // Run the Java program
-                sh 'java ./hello'
+                sh 'java simple'
             }
         }
     }
