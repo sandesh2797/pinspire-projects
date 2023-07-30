@@ -1,16 +1,28 @@
 pipeline {
     agent any
+
     stages {
-        stage('Build Application') {
+        stage('Compile') {
             steps {
-                sh 'mvn -f pom.xml clean package'
+                // Compile the Java code using javac
+                sh 'javac hello.java'
             }
-            post {
-                success {
-                    echo "Now Archiving the Artifacts....."
-                    archiveArtifacts artifacts: '**/*.war'
-                }
+        }
+
+        stage('Run') {
+            steps {
+                // Run the Java program
+                sh 'java hello'
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'Java code is compiled and run successfully!'
+        }
+        failure {
+            echo 'Compilation or execution of Java code failed. Please check the logs for details.'
         }
     }
 }
