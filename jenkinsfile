@@ -5,14 +5,14 @@ pipeline {
         stage('Compile') {
             steps {
                 // Compile the Java code using javac
-                sh 'javac hello.java'
+                sh javac hello.java
             }
         }
 
         stage('Run') {
             steps {
                 // Run the Java program
-                sh 'java hello'
+                sh 'java ./hello.java'
             }
         }
     }
